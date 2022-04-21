@@ -18,18 +18,18 @@ export default function ProductsCategory() {
   async function callApiProductsCategory() {
 
     try {
-      const URL = "/productsCategory/"
-      // const URL = "/productsCategory/" + categoryId
+      const URL = "/categories/" + categoryId['id'];
       const response = await api.get(URL);
-      setProduct(response.data);
+      setProduct(response.data.products);
     }
     catch (error) {
+      console.error('error', error);
     }
   }
   return (
     <>
       <body style={{textDecoration:"none",background:"#e5e5e5",padding: "0 20px"  }}>
-      <h1 style={{ fontSize: "50px", color:"black"  }}>Produtos da categoria</h1>
+      <h1 style={{ fontSize: "50px", color:"black" }}>Produtos da categoria</h1>
       <ul style={{display: "flex",alignItems: "center"}}>
         <li style={{display: "flex",flexWrap: "wrap",justifyContent: "center"}}>
         {product.map((item) => (
